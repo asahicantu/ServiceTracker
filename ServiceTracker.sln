@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceTracker_WebApp", "ServiceTracker_WebApp\ServiceTracker_WebApp.csproj", "{F17B24D5-8514-4D3A-9C84-5A8B05CA9E26}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ServiceTracker_DB", "ServiceTracker_DB\ServiceTracker_DB.sqlproj", "{CD7D2F82-FD17-4A5F-83B4-4EF5767A34B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceTracker_DAL", "ServiceTracker_DAL\ServiceTracker_DAL.csproj", "{5F8465D9-2909-4F6E-A35D-DC75E4429B77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2E3336D8-FE41-4826-81E7-144ACF3B6FB1}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F17B24D5-8514-4D3A-9C84-5A8B05CA9E26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F17B24D5-8514-4D3A-9C84-5A8B05CA9E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F17B24D5-8514-4D3A-9C84-5A8B05CA9E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F17B24D5-8514-4D3A-9C84-5A8B05CA9E26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD7D2F82-FD17-4A5F-83B4-4EF5767A34B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD7D2F82-FD17-4A5F-83B4-4EF5767A34B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD7D2F82-FD17-4A5F-83B4-4EF5767A34B8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CD7D2F82-FD17-4A5F-83B4-4EF5767A34B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD7D2F82-FD17-4A5F-83B4-4EF5767A34B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD7D2F82-FD17-4A5F-83B4-4EF5767A34B8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5F8465D9-2909-4F6E-A35D-DC75E4429B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F8465D9-2909-4F6E-A35D-DC75E4429B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F8465D9-2909-4F6E-A35D-DC75E4429B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F8465D9-2909-4F6E-A35D-DC75E4429B77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E0A6893-226F-467F-AD90-222DB620A66D}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://avmnorway.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ServiceTracker_WebApp\\ServiceTracker_WebApp.csproj
+		SccProjectName1 = ServiceTracker_WebApp
+		SccLocalPath1 = ServiceTracker_WebApp
+		SccProjectUniqueName2 = ServiceTracker_DB\\ServiceTracker_DB.sqlproj
+		SccProjectName2 = ServiceTracker_DB
+		SccLocalPath2 = ServiceTracker_DB
+		SccProjectUniqueName3 = ServiceTracker_DAL\\ServiceTracker_DAL.csproj
+		SccProjectName3 = ServiceTracker_DAL
+		SccLocalPath3 = ServiceTracker_DAL
+	EndGlobalSection
+EndGlobal

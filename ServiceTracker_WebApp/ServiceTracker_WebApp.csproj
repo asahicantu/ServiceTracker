@@ -1,0 +1,121 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
+    <RootNamespace>ServiceTracker</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\build\**" />
+    <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\build\**" />
+    <EmbeddedResource Remove="ClientApp\build\**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\build\**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\build\asset-manifest.json" />
+    <None Remove="ClientApp\build\favicon.ico" />
+    <None Remove="ClientApp\build\index.html" />
+    <None Remove="ClientApp\build\manifest.json" />
+    <None Remove="ClientApp\build\service-worker.js" />
+    <None Remove="ClientApp\build\static\css\main.3c3ef27b.css" />
+    <None Remove="ClientApp\build\static\css\main.3c3ef27b.css.map" />
+    <None Remove="ClientApp\build\static\js\main.9f44ed50.js" />
+    <None Remove="ClientApp\build\static\js\main.9f44ed50.js.map" />
+    <None Remove="ClientApp\build\static\media\fa-brands-400.38975343.svg" />
+    <None Remove="ClientApp\build\static\media\fa-brands-400.8e49b728.eot" />
+    <None Remove="ClientApp\build\static\media\fa-brands-400.9f018d10.woff" />
+    <None Remove="ClientApp\build\static\media\fa-brands-400.9f4ce3dc.woff2" />
+    <None Remove="ClientApp\build\static\media\fa-brands-400.b7d071b9.ttf" />
+    <None Remove="ClientApp\build\static\media\fa-regular-400.7980a636.woff2" />
+    <None Remove="ClientApp\build\static\media\fa-regular-400.7aaf5675.woff" />
+    <None Remove="ClientApp\build\static\media\fa-regular-400.859001f6.eot" />
+    <None Remove="ClientApp\build\static\media\fa-regular-400.da8a235b.svg" />
+    <None Remove="ClientApp\build\static\media\fa-regular-400.f3334251.ttf" />
+    <None Remove="ClientApp\build\static\media\fa-solid-900.0be94a07.woff" />
+    <None Remove="ClientApp\build\static\media\fa-solid-900.64b3e814.woff2" />
+    <None Remove="ClientApp\build\static\media\fa-solid-900.7726a281.svg" />
+    <None Remove="ClientApp\build\static\media\fa-solid-900.e2675a61.eot" />
+    <None Remove="ClientApp\build\static\media\fa-solid-900.f14c3b2f.ttf" />
+    <None Remove="ClientApp\src\components\Svc\totalItem.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="ClientApp\src\components\Svc\TotalItem.js">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ClientApp\src\components\css\svc.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceTracker_DAL\ServiceTracker_DAL.csproj" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)build\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>
