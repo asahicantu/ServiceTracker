@@ -37,6 +37,7 @@ namespace ServiceTracker.Controllers
                 SDLS = sdls,
                 AMS = _unitOfWork.Employee.Entities.Where(e => e.IsAccountManager == true).Select(c => new CatalogViewModel(c.Id, c.Alias)).ToList(),
                 Clients = _unitOfWork.Company.Entities.Select(c => new CatalogViewModel(c.Id, c.Name)).ToList(),
+                Bls = _unitOfWork.BL.Entities.Select(c => new CatalogViewModel(c.Id, c.Name)).ToList(),
                 Countries = _unitOfWork.Country.Entities.Select(c => new CatalogViewModel(c.Code, c.Code)).ToList(),
                 Currencies = _unitOfWork.Currency.Entities.Select(c => new CatalogViewModel(c.Code, c.Code)).ToList(),
                 Employees = _unitOfWork.Employee.Entities.Where(e => e.IsEngineer == true).Select(e=> new CatalogViewModel(e.Id,e.FullName1)).ToList(),
@@ -120,15 +121,16 @@ namespace ServiceTracker.Controllers
         private void ChangeBlockStatus(IEnumerable<ServiceViewModel> svcs, int blocked)
         {
             var ids = svcs.Select(s => s.Id);
+
             var inId = new SqlParameter("@inId", string.Join(',', ids));
-            _unitOfWork.Service.Entities.FromSql($"UPDATE SERVICE SET Blocked = 1 where Id in (@inId)", inId);
+            _unitOfWork.Service.Entities.FromSqlRaw($"UPDATE SERVICE SET Blocked = 1 where Id in (@inId)", inId);
         }
 
         private void DeleteData(IEnumerable<ServiceViewModel> svcs)
         {
             var ids = svcs.Select(s => s.Id);
             var inId = new SqlParameter("@inId", string.Join(',', ids));
-            _unitOfWork.Service.Entities.FromSql($"DELETE SERVICE WHERE Id IN (@inId)", inId);
+            _unitOfWork.Service.Entities.FromSqlRaw($"DELETE SERVICE WHERE Id IN (@inId)", inId);
         }
 
 

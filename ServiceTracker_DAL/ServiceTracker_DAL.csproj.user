@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
+    <RevDeBugCompilerPath>c:\users\asahi\appdata\local\microsoft\visualstudio\16.0_dcccf9a2\extensions\ig3pxaag.kf0\tmcc\</RevDeBugCompilerPath>
+    <CustomAfterMicrosoftCommonTargets>c:\users\asahi\appdata\local\microsoft\visualstudio\16.0_dcccf9a2\extensions\ig3pxaag.kf0\tmcc\RevDeBug.ImportAfter.targets</CustomAfterMicrosoftCommonTargets>
+    <RevDeBugActive>True</RevDeBugActive>
+    <SaveMetadataAsync>true</SaveMetadataAsync>
+    <RevDeBugDisableNuget>true</RevDeBugDisableNuget>
+    <RevDeBugMetadataPath>C:\Users\asahi\Documents\RevDeBug\ServiceTracker\Metadata\\</RevDeBugMetadataPath>
+    <RevDeBugStateStorageType>Continuous</RevDeBugStateStorageType>
+    <PublishWithRevDeBug>false</PublishWithRevDeBug>
+    <RecorderAddress>127.0.0.1</RecorderAddress>
+    <RecorderTCPPort>42742</RecorderTCPPort>
+  </PropertyGroup>
+</Project>

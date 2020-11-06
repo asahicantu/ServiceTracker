@@ -13,10 +13,11 @@ using ServiceTracker.DAL.Models;
 
 namespace ServiceTracker.DAL.Repositories
 {
-    public class PortfolioRepository : Repository<Portfolio>
+    public class BLRepository : Repository<BL>
     {
-        public PortfolioRepository(STContext context) : base(context)
+        public BLRepository(STContext context) : base(context)
         { }
+
 
         private STContext _appContext => _context;
     }

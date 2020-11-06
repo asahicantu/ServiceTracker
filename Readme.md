@@ -20,4 +20,11 @@ The solution consists of three different projects:
 	It is closely related to ServiceTracker_WebApp
 #### 3. - ServiceTracker_DB
 	Is a pivot project, will contain SQL Scripts / Views or functions that allow in the future the database to be easily manipulated nad keep track of the SQL changes performed to the database.
+
+#### 4. - Project settings
+	Has been built using yarnn and react.js. 
+	Use the following commmands:
+	yarn
+	yarn upgrade
+	yarn run build
 	

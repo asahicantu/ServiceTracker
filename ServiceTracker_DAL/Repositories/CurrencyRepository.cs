@@ -10,11 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ServiceTracker.DAL.Models;
-using ServiceTracker.DAL.Repositories.Interfaces;
 
 namespace ServiceTracker.DAL.Repositories
 {
-    public class CurrencyRepository : Repository<Currency>, ICurrencyRepository
+    public class CurrencyRepository : Repository<Currency>
     {
         public CurrencyRepository(STContext context) : base(context)
         { }

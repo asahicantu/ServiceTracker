@@ -4,7 +4,7 @@ import LoadingOverlay from 'react-loading-overlay';
 import Header from './SvcHeader'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './svcContainer.css'
+//import './svcContainer.css'
 
 
 export class SvcContainer extends Component {
@@ -38,6 +38,7 @@ export class SvcContainer extends Component {
                 working: false,
                 loading: true,
                 clientsCatalog: null,
+                blsCatalog: null,
                 sdlCatalog: null,
                 amCatalog: null,
                 portfolioCatalog: null,
@@ -58,6 +59,7 @@ export class SvcContainer extends Component {
                 this.setState({
                     loading: false,
                     clientsCatalog: data.clients,
+                    blsCatalog: data.bls,
                     sdlCatalog: data.sdls,
                     amCatalog: data.ams,
                     costTypesCatalog: data.costTypes,
@@ -158,6 +160,7 @@ export class SvcContainer extends Component {
                     />
                     <Svc ref="childSvc"
                         clientsCatalog={this.state.clientsCatalog}
+                        blsCatalog={this.state.blsCatalog}
                         sdlCatalog={this.state.sdlCatalog}
                         amCatalog={this.state.amCatalog}
                         portfolioCatalog={this.state.portfolioCatalog}

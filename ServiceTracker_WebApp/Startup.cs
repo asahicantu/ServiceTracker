@@ -28,11 +28,11 @@ namespace ServiceTracker
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddDbContext<STContext>(o =>o.UseSqlServer(Configuration["ConnectionStrings:DevConnection"]));
+            services.AddDbContext<STContext>(o =>o.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
 
             // In production, the React files will be served from this directory
@@ -40,6 +40,10 @@ namespace ServiceTracker
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddMvc(option =>option.EnableEndpointRouting = false);
+
+
 
 
         }

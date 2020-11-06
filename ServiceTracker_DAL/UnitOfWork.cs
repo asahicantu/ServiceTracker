@@ -12,8 +12,8 @@ using ServiceTracker.DAL.Models;
 using DAL.Repositories;
 using DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using ServiceTracker.DAL.Repositories.Interfaces;
 using ServiceTracker.DAL.Repositories;
+using System.Runtime.InteropServices;
 
 namespace ServiceTracker.DAL
 {
@@ -21,14 +21,15 @@ namespace ServiceTracker.DAL
     {
         readonly STContext _context;
 
-        ICompanyRepository _company;
-        IEmployeeRepository _employee;
-        IServiceRepository _service;
-        ICountryRepository _country;
-        ICostTypeRepository _costType;
-        ICurrencyRepository _currency;
-        IPortfolioRepository _portfolio;
-        ISubportfolioRepository _subportfolio;
+        private IRepository<Company>_company;
+        private IRepository<Employee>_employee;
+        private IRepository<Service>_service;
+        private IRepository<Country>_country;
+        private IRepository<CostType>_costType;
+        private IRepository<Currency>_currency;
+        private IRepository<Portfolio>_portfolio;
+        private IRepository<SubPortfolio>_subportfolio;
+        private IRepository<BL>_bl;
 
 
         public UnitOfWork(STContext context)
@@ -36,11 +37,11 @@ namespace ServiceTracker.DAL
             _context = context;
         }
 
-        public IPortfolioRepository Portfolio
+        public IRepository<Portfolio> Portfolio
         {
             get
             {
-                if(_portfolio == null)
+                if (_portfolio == null)
                 {
                     _portfolio = new PortfolioRepository(_context);
                 }
@@ -49,7 +50,7 @@ namespace ServiceTracker.DAL
 
         }
 
-        public ISubportfolioRepository  Subportfolio
+        public IRepository<SubPortfolio> Subportfolio
         {
             get
             {
@@ -60,7 +61,7 @@ namespace ServiceTracker.DAL
         }
 
 
-        public ICompanyRepository Company
+        public IRepository<Company>  Company
         {
             get
             {
@@ -70,7 +71,7 @@ namespace ServiceTracker.DAL
             }
         }
 
-        public IEmployeeRepository Employee
+        public IRepository<Employee> Employee
         {
             get
             {
@@ -80,7 +81,7 @@ namespace ServiceTracker.DAL
             }
         }
 
-        public  IServiceRepository Service
+        public IRepository<Service> Service
         {
             get
             {
@@ -90,8 +91,8 @@ namespace ServiceTracker.DAL
             }
         }
 
-        public ICountryRepository Country 
-            {
+        public IRepository<Country> Country
+        {
             get
             {
                 if (_country == null)
@@ -100,7 +101,7 @@ namespace ServiceTracker.DAL
             }
         }
 
-        public ICostTypeRepository CostType
+        public IRepository<CostType> CostType
         {
             get
             {
@@ -110,7 +111,7 @@ namespace ServiceTracker.DAL
             }
         }
 
-        public ICurrencyRepository Currency
+        public IRepository<Currency> Currency
         {
             get
             {
@@ -119,6 +120,18 @@ namespace ServiceTracker.DAL
                 return _currency;
             }
         }
+
+        public IRepository<BL> BL
+        {
+            get
+            {
+                if (_bl == null)
+                    _bl = new BLRepository(_context);
+                return _bl;
+
+            }
+        }
+
 
         public int SaveChanges()
         {

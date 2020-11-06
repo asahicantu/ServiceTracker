@@ -70,11 +70,11 @@
     <None Include="Scripts\FillTableSettings.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Scripts\Migration\BackupDB.sql" />
-    <Build Include="Scripts\Migration\GetDBTablesize.sql" />
-    <Build Include="Scripts\Migration\MigrateData.sql" />
-    <Build Include="Scripts\Migration\MigrateDataReverse.sql" />
-    <Build Include="Scripts\Migration\RestoreDB.sql" />
-    <Build Include="Scripts\Migration\ShinkDBTransactionLog.sql" />
+    <None Include="Scripts\Migration\BackupDB.sql" />
+    <None Include="Scripts\Migration\GetDBTablesize.sql" />
+    <None Include="Scripts\Migration\MigrateData.sql" />
+    <None Include="Scripts\Migration\MigrateDataReverse.sql" />
+    <None Include="Scripts\Migration\RestoreDB.sql" />
+    <None Include="Scripts\Migration\ShinkDBTransactionLog.sql" />
   </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@
 
 using DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using ServiceTracker.DAL.Repositories.Interfaces;
+using ServiceTracker.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,14 +17,15 @@ namespace ServiceTracker.DAL
     public interface IUnitOfWork
     {
 
-        IServiceRepository Service { get; }
-        IEmployeeRepository Employee { get; }
-        ICompanyRepository Company { get; }
-        ICountryRepository Country { get; }
-        ICostTypeRepository CostType { get; }
-        ICurrencyRepository Currency { get; }
-        IPortfolioRepository Portfolio { get; }
-        ISubportfolioRepository Subportfolio { get; }
+        IRepository<Service> Service { get; }
+        IRepository<Employee> Employee { get; }
+        IRepository<Company> Company { get; }
+        IRepository<BL> BL { get; }
+        IRepository<Country> Country { get; }
+        IRepository<CostType> CostType { get; }
+        IRepository<Currency> Currency { get; }
+        IRepository<Portfolio> Portfolio { get; }
+        IRepository<SubPortfolio> Subportfolio { get; }
         int SaveChanges();
     }
 }

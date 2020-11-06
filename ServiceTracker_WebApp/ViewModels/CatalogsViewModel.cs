@@ -32,6 +32,7 @@ namespace ServiceTracker.ViewModels
         public List<CatalogViewModel> Currencies { get; set; }
         public List<CatalogViewModel> Portfolios { get; set; }
         public List<CatalogViewModel> Subportfolios { get; set; }
+        public List<CatalogViewModel> Bls{ get; set; }
 
 
         public CatalogsViewModel()

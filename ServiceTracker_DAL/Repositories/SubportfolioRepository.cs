@@ -10,11 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ServiceTracker.DAL.Models;
-using ServiceTracker.DAL.Repositories.Interfaces;
 
 namespace ServiceTracker.DAL.Repositories
 {
-    public class SubportfolioRepository : Repository<SubPortfolio>, ISubportfolioRepository
+    public class SubportfolioRepository : Repository<SubPortfolio>
     {
         public SubportfolioRepository(STContext context) : base(context)
         { }

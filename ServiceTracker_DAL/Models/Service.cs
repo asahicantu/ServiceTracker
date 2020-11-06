@@ -17,6 +17,7 @@ namespace ServiceTracker.DAL.Models
         public string Client { get; set; }
         public string Field { get; set; }
         public string Well { get; set; }
+        public string BL { get; set; }
         public string Au { get; set; }
         public string Ac { get; set; }
         public string Portfolio { get; set; }

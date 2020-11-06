@@ -38,6 +38,7 @@ namespace ServiceTracker.DAL.Models
         public virtual DbSet<Well> Well { get; set; }
         public virtual DbSet<Portfolio> Portfolio { get; set; }
         public virtual DbSet<SubPortfolio> SubPortfolio { get; set; }
+        public virtual DbSet<BL> BL{ get; set; }
 
         // Unable to generate entity type for table 'dbo.AccountUnit'. Please see the warning messages.
         // Unable to generate entity type for table 'dbo.ActivityCost'. Please see the warning messages.
@@ -79,6 +80,7 @@ namespace ServiceTracker.DAL.Models
                     .HasColumnName("QuoteFTL")
                     .HasMaxLength(50);
 
+
                 entity.HasOne(d => d.AccountManager)
                     .WithMany(p => p.AccountAccountManager)
                     .HasForeignKey(d => d.AccountManagerId)
@@ -93,6 +95,7 @@ namespace ServiceTracker.DAL.Models
                     .WithMany(p => p.Account)
                     .HasForeignKey(d => d.CountryCode)
                     .HasConstraintName("FK_Country_Account");
+
 
                 entity.HasOne(d => d.CurrencyCodeNavigation)
                     .WithMany(p => p.Account)
@@ -159,6 +162,19 @@ namespace ServiceTracker.DAL.Models
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(30);
+            });
+
+            modelBuilder.Entity<BL>(entity =>
+            {
+                entity.HasKey(e => e.Id)
+                    .HasName("PK_BL");
+
+                entity.Property(e => e.Id).IsRequired(true)
+                   .ValueGeneratedOnAdd();
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
             });
 
             modelBuilder.Entity<Employee>(entity =>
@@ -267,6 +283,7 @@ namespace ServiceTracker.DAL.Models
                 entity.Property(e => e.Date).HasColumnType("datetime");
 
                 entity.Property(e => e.Field).HasMaxLength(255);
+                entity.Property(e => e.BL).HasMaxLength(50);
 
                 entity.Property(e => e.Fxrate)
                     .HasColumnName("FXRate")

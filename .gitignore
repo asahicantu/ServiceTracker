@@ -3,3 +3,10 @@
 ################################################################################
 
 /ServiceTracker_DAL/bin/Debug
+/ServiceTracker_DAL/obj
+/ServiceTracker_WebApp/bin/Debug
+/ServiceTracker_WebApp/ClientApp/node_modules
+/ServiceTracker_WebApp/ClientApp/yarn.lock
+/ServiceTracker_WebApp/obj
+/ServiceTracker_DB/bin/Debug
+/ServiceTracker_DB/obj/Debug

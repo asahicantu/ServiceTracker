@@ -10,11 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ServiceTracker.DAL.Models;
-using ServiceTracker.DAL.Repositories.Interfaces;
 
 namespace ServiceTracker.DAL.Repositories
 {
-    public class ServiceRepository : Repository<Service>, IServiceRepository
+    public class ServiceRepository : Repository<Service>
     {
         public ServiceRepository(STContext context) : base(context)
         { }
